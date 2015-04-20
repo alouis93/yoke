@@ -1,0 +1,111 @@
+@charset "UTF-8";
+// Mixins
+@import "components/prefixer";
+@import "components/mixins";
+@import "components/color";
+// Variables;
+@import "components/variables";
+// Reset
+@import "components/normalize";
+// components
+@import "components/global";
+@import "components/icons-material-design";
+@import "components/grid";
+@import "components/navbar";
+@import "components/roboto";
+@import "components/typography";
+@import "components/cards";
+@import "components/toast";
+@import "components/tabs";
+@import "components/tooltip";
+@import "components/buttons";
+@import "components/dropdown";
+@import "components/waves";
+@import "components/modal";
+@import "components/collapsible";
+@import "components/materialbox";
+@import "components/form";
+@import "components/table_of_contents";
+@import "components/sideNav";
+@import "components/preloader";
+@import "components/slider";
+@import "components/date_picker/default.scss";
+@import "components/date_picker/default.date.scss";
+@import "components/date_picker/default.time.scss";
+$pale-crimson: #fd5858;
+$height: auto;
+.side-nav li {
+  font-weight: bold;
+}
+// Hide navbar on smaller devices
+header,
+main,
+footer {
+  padding-left: 240px;
+}
+@media #{$medium-and-down} {
+  header,
+  main,
+  footer {
+    padding-left: 0;
+  }
+}
+.side-nav a {
+  cursor: pointer;
+}
+.white-text {
+  color: white;
+}
+// FIXME: Neater centering.
+.intro-container {
+  position: absolute;
+  height: 90%;
+  left: 0;
+  right: 0;
+}
+.brand {
+  text-align: center;
+  font-family: "Helvetica", sans-serif;
+  font-size: 7em;
+  font-weight: bold;
+  color: $pale-crimson;
+  letter-spacing: -5px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 250px;
+}
+#top-nav {
+  display: none;
+}
+@media #{$medium-and-down} {
+  .brand {
+    padding-left: 0;
+  }
+  #top-nav {
+    display: block;
+  }
+}
+.userheader {
+  // max-width: 75%;
+  float: left;
+}
+.follow_state {
+  float: right;
+  margin-top: 1.1rem;
+}
+.follow_state:hover {
+  cursor: pointer;
+}
+.follow {
+  color: $pale-crimson;
+  @include rotate(-90deg);
+}
+.follow:hover {
+  @include rotate(90deg);
+  @include transition(700ms);
+}
+.date-text {
+  color: yellow;
+  font-weight: bold;
+  text-align: right;
+}

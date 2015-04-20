@@ -1,0 +1,22 @@
+<template name="base">
+  <header>
+    {{>navigation}}
+  </header>
+  <main>
+    {{>modal}}
+    <div class="container">
+      {{>yield}}
+    </div>
+  </main>
+  <footer>
+  </footer>
+</template>
+
+
+<template name="hello">
+  <div class="row">
+    <div class="intro-container valign-wrapper">
+      <h1 class="brand valign">yoke</h1>
+    </div>
+  </div>
+</template>

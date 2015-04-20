@@ -1,0 +1,46 @@
+<template name="home">
+  <div class="row">
+    <div class="col s10">
+      <h1 class="truncate userheader">{{username}}</h1>
+    </div>
+    <div class="col s2">
+      {{#if isFollowing}}
+      <i class="medium mdi-content-add-circle follow follow_state"></i> {{else}}
+      <i class="medium mdi-action-highlight-remove unfollow follow_state"></i> {{/if}}
+    </div>
+  </div>
+  {{#if pageOwner}} {{>omnibar}} {{/if}} {{>userFeed}}
+</template>
+
+<template name="omnibar">
+  <div class="row">
+    <form class="omnibar-form">
+      <div class="col s10">
+        <input id="yoke-text" type="text" placeholder="Search for..." required="true">
+      </div>
+      <div class="col s2">
+        <button type="submit" class="btn btn-default">yoke</button>
+      </div>
+    </form>
+  </div>
+</template>
+
+<template name="userFeed">
+  {{#each yokes}} {{>yoke}} {{/each}}
+</template>
+
+<template name="yoke">
+  <div class="row">
+    <div class="col s12 m12">
+      <div class="card-panel teal">
+        <div class="white-text section">
+          <span>{{msg}}</span>
+        </div>
+        <div class="divider"></div>
+        <div class="date-text section">
+          <span>{{formatDate createdAt}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

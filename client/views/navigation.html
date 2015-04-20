@@ -1,0 +1,29 @@
+<template name="navigation">
+  <nav id="top-nav">
+    <div class="navbar-fixed">
+      <a href="#" data-activates="nav-mobile" class="button-collapse">
+        <i class="mdi-navigation-menu"></i>
+      </a>
+    </div>
+  </nav>
+  <ul id="nav-mobile" class="side-nav fixed">
+    {{#if loggedIn}}
+    <li>
+      <a data-target="authModal" data-modal-template="logoutForm" class="modal-trigger" href="#authModal">
+        Sign Out
+      </a>
+    </li>
+    {{else}}
+    <li>
+      <a data-target="authModal" data-modal-template="loginForm" class="modal-trigger" href="#authModal">
+        Login
+      </a>
+    </li>
+    <li>
+      <a data-target="authModal" data-modal-template="signupForm" class="modal-trigger" href="#authModal">
+        Register
+      </a>
+    </li>
+    {{/if}}
+  </ul>
+</template>
