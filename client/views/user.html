@@ -4,12 +4,12 @@
       <h1 class="truncate userheader">{{username}}</h1>
     </div>
     <div class="col s2">
-      {{#if isFollowing}}
+      {{#unless pageOwner}} {{#if isFollowing}}
       <i class="medium mdi-content-add-circle follow follow_state"></i> {{else}}
-      <i class="medium mdi-action-highlight-remove unfollow follow_state"></i> {{/if}}
+      <i class="medium mdi-action-highlight-remove unfollow follow_state"></i> {{/if}} {{/unless}}
     </div>
   </div>
-  {{#if pageOwner}} {{>omnibar}} {{/if}} {{>userFeed}}
+  {{#unless inSearch}} {{#if pageOwner}} {{>omnibar}} {{/if}} {{>userFeed}} {{else}} {{>search}} {{/unless}}
 </template>
 
 <template name="omnibar">

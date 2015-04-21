@@ -6,33 +6,28 @@ button:focus {
   outline: none;
   background-color: lighten($button-color, 4%);
 }
-
 label {
   font-size: $label-font-size;
   color: $input-border-color;
 }
-
 /***************************
    Text Inputs + Textarea
 ****************************/
-
 // Style Placeholders
 ::-webkit-input-placeholder {
-   color: lighten($input-border-color, 20%);
+  color: lighten($input-border-color, 20%);
 }
-
-:-moz-placeholder { /* Firefox 18- */
-   color: lighten($input-border-color, 20%);
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: lighten($input-border-color, 20%);
 }
-
-::-moz-placeholder {  /* Firefox 19+ */
-   color: lighten($input-border-color, 20%);
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: lighten($input-border-color, 20%);
 }
-
 :-ms-input-placeholder {
-   color: lighten($input-border-color, 20%);
+  color: lighten($input-border-color, 20%);
 }
-
 // Text inputs
 input[type=text],
 input[type=password],
@@ -45,7 +40,6 @@ input[type=tel],
 input[type=number],
 input[type=search],
 textarea.materialize-textarea {
-
   // General Styles
   background-color: transparent;
   border: none;
@@ -54,22 +48,21 @@ textarea.materialize-textarea {
   outline: none;
   height: 3rem;
   width: 100%;
-
   font-size: 1rem;
-  margin: 0 0 15px 0;
+  margin: 0 0 15px;
   padding: 0;
   box-shadow: none;
   @include box-sizing(content-box);
-  transition: all .3s;
-
-
+  transition: all 0.3s;
   // Disabled input style
-  &:disabled, &[readonly="readonly"] {
+  &:disabled,
+  &[readonly="readonly"] {
     color: $input-disabled-color;
     border-bottom: 1px dotted $input-disabled-color;
   }
   // Disabled label style
-  &:disabled+label, &[readonly="readonly"]+label {
+  &:disabled+label,
+  &[readonly="readonly"]+label {
     color: $input-disabled-color;
   }
   // Focused input style
@@ -94,12 +87,10 @@ textarea.materialize-textarea {
     box-shadow: 0 1px 0 0 $input-error-color;
   }
 }
-
 // Styling for input field wrapper
 .input-field {
   position: relative;
   margin-top: 1rem;
-
   label {
     color: $input-border-color;
     position: absolute;
@@ -113,15 +104,15 @@ textarea.materialize-textarea {
     font-size: $label-font-size;
     @include transform(translateY(-140%));
   }
-
   // Prefix Icons
   .prefix {
     position: absolute;
     width: 3rem;
     font-size: 2rem;
     @include transition(color .2s);
-
-    &.active { color: $input-focus-color; }
+    &.active {
+      color: $input-focus-color;
+    }
   }
   .prefix ~ input,
   .prefix ~ textarea {
@@ -129,9 +120,12 @@ textarea.materialize-textarea {
     width: 92%;
     width: calc(100% - 3rem);
   }
-  .prefix ~ textarea { padding-top: .8rem; }
-  .prefix ~ label { margin-left: 3rem; }
-
+  .prefix ~ textarea {
+    padding-top: 0.8rem;
+  }
+  .prefix ~ label {
+    margin-left: 3rem;
+  }
   @media #{$medium-and-down} {
     .prefix ~ input {
       width: 86%;
@@ -145,33 +139,26 @@ textarea.materialize-textarea {
     }
   }
 }
-
-
 // Search Field
-
-
-.input-field input[type=search] {
+.input-field input[type=search],
+.search-input {
   display: block;
   line-height: inherit;
   padding-left: 4rem;
   width: calc(100% - 4rem);
-
   &:focus {
-    background-color: #FFF;
+    background-color: #fff;
     border: 0;
     box-shadow: none;
     color: #444;
-
     & + label i,
     & ~ .mdi-navigation-close {
       color: #444;
     }
   }
-
   & + label {
     left: 1rem;
   }
-
   & ~ .mdi-navigation-close {
     position: absolute;
     top: 0;
@@ -179,40 +166,36 @@ textarea.materialize-textarea {
     color: transparent;
     cursor: pointer;
     font-size: 2rem;
-    transition: .3s color;
+    transition: 0.3s color;
   }
 }
-
-
 // Default textarea
 textarea {
-   width: 100%;
-   height: 3rem;
-   background-color: transparent;
-
+  width: 100%;
+  height: 3rem;
+  background-color: transparent;
   &.materialize-textarea {
-    overflow-y: hidden; /* prevents scroll bar flash */
-    padding: 1.6rem 0; /* prevents text jump on Enter keypress */
+    overflow-y: hidden;
+    /* prevents scroll bar flash */
+    padding: 1.6rem 0;
+    /* prevents text jump on Enter keypress */
     resize: none;
     min-height: 3rem;
   }
 }
-
-
 // For textarea autoresize
 .hiddendiv {
   display: none;
   white-space: pre-wrap;
   word-wrap: break-word;
-  overflow-wrap: break-word; /* future version of deprecated 'word-wrap' */
-  padding-top: 1.2rem; /* prevents text jump on Enter keypress */
+  overflow-wrap: break-word;
+  /* future version of deprecated 'word-wrap' */
+  padding-top: 1.2rem;
+  /* prevents text jump on Enter keypress */
 }
-
-
 /***************
   Radio Buttons
 ***************/
-
 /* Remove default Radio Buttons */
 [type="radio"]:not(:checked),
 [type="radio"]:checked {
@@ -220,7 +203,6 @@ textarea {
   left: -9999px;
   visibility: hidden;
 }
-
 [type="radio"]:not(:checked) + label,
 [type="radio"]:checked + label {
   position: relative;
@@ -231,13 +213,15 @@ textarea {
   line-height: 25px;
   font-size: 1rem;
   @include transition(.28s ease);
-
-  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
-  -moz-user-select: none; /* mozilla browsers */
-  -khtml-user-select: none; /* webkit (konqueror) browsers */
-  -ms-user-select: none; /* IE10+ */
+  -webkit-user-select: none;
+  /* webkit (safari, chrome) browsers */
+  -moz-user-select: none;
+  /* mozilla browsers */
+  -khtml-user-select: none;
+  /* webkit (konqueror) browsers */
+  -ms-user-select: none;
+  /* IE10+ */
 }
-
 [type="radio"] + label:before,
 [type="radio"] + label:after {
   content: '';
@@ -250,8 +234,6 @@ textarea {
   z-index: 0;
   @include transition(.28s ease);
 }
-
-
 /* Unchecked styles */
 [type="radio"]:not(:checked) + label:before {
   border-radius: 50%;
@@ -261,10 +243,8 @@ textarea {
   border-radius: 50%;
   border: 2px solid $radio-empty-color;
   z-index: -1;
-
   @include transform(scale(0));
 }
-
 /* Checked styles */
 [type="radio"]:checked + label:before {
   border-radius: 50%;
@@ -277,7 +257,6 @@ textarea {
   z-index: 0;
   @include transform(scale(1.02));
 }
-
 /* Radio With gap */
 [type="radio"].with-gap:checked + label:before {
   border-radius: 50%;
@@ -290,7 +269,6 @@ textarea {
   z-index: 0;
   @include transform(scale(.5));
 }
-
 /* Disabled style */
 [type="radio"]:disabled:not(:checked) + label:before,
 [type="radio"]:disabled:checked + label:before {
@@ -303,12 +281,9 @@ textarea {
 [type="radio"]:disabled:not(:checked) + label:hover:before {
   border-color: $input-disabled-color;
 }
-
-
 /***************
    Checkboxes
 ***************/
-
 /* CUSTOM CSS CHECKBOXES */
 form p {
   margin-bottom: 10px;
@@ -317,18 +292,14 @@ form p {
 form p:last-child {
   margin-bottom: 0;
 }
-
 /* Remove default checkbox */
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
   position: absolute;
   left: -9999px;
 }
-
-
 // Checkbox Styles
 [type="checkbox"] {
-
   // Text Label Style
   + label {
     position: relative;
@@ -338,13 +309,15 @@ form p:last-child {
     height: 25px;
     line-height: 25px;
     font-size: 1rem;
-
-    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
-    -moz-user-select: none; /* mozilla browsers */
-    -khtml-user-select: none; /* webkit (konqueror) browsers */
-    -ms-user-select: none; /* IE10+ */
+    -webkit-user-select: none;
+    /* webkit (safari, chrome) browsers */
+    -moz-user-select: none;
+    /* mozilla browsers */
+    -khtml-user-select: none;
+    /* webkit (konqueror) browsers */
+    -ms-user-select: none;
+    /* IE10+ */
   }
-
   /* checkbox aspect */
   + label:before {
     content: '';
@@ -359,19 +332,17 @@ form p:last-child {
     margin-top: 2px;
     @include transition(.2s);
   }
-
   &:not(:checked):disabled + label:before {
     border: none;
     background-color: $input-disabled-color;
   }
-
 }
-
 [type="checkbox"]:checked {
   + label:before {
     top: -4px;
     left: -3px;
-    width: 12px; height: 22px;
+    width: 12px;
+    height: 22px;
     border-top: 2px solid transparent;
     border-left: 2px solid transparent;
     border-right: 2px solid $radio-fill-color;
@@ -380,20 +351,18 @@ form p:last-child {
     -webkit-backface-visibility: hidden;
     @include transform-origin(100% 100%);
   }
-
   &:disabled + label:before {
     border-right: 2px solid $input-disabled-color;
     border-bottom: 2px solid $input-disabled-color;
   }
-
 }
-
 /* Indeterminate checkbox */
 [type="checkbox"]:indeterminate {
   +label:before {
     left: -10px;
     top: -11px;
-    width: 10px; height: 22px;
+    width: 10px;
+    height: 22px;
     border-top: none;
     border-left: none;
     border-right: 2px solid $radio-fill-color;
@@ -402,15 +371,12 @@ form p:last-child {
     -webkit-backface-visibility: hidden;
     @include transform-origin(100% 100%);
   }
-
   // Disabled indeterminate
   &:disabled + label:before {
     border-right: 2px solid $input-disabled-color;
     background-color: transparent;
   }
 }
-
-
 // Filled in Style
 [type="checkbox"].filled-in {
   // General
@@ -423,28 +389,27 @@ form p:last-child {
     left: 0;
     position: absolute;
     /* .1s delay is for check animation */
-    transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
+    transition: border 0.25s, background-color 0.25s, width 0.20s 0.1s, height 0.20s 0.1s, top 0.20s 0.1s, left 0.20s 0.1s;
     z-index: 1;
   }
   // Unchecked style
   &:not(:checked) + label:before {
     width: 0;
-     height: 0;
-     border: 3px solid transparent;
-     left: 6px;
-     top: 10px;
-
-     -webkit-transform: rotateZ(37deg);
-             transform: rotateZ(37deg);
-     -webkit-transform-origin: 20% 40%;
-             transform-origin: 100% 100%;
+    height: 0;
+    border: 3px solid transparent;
+    left: 6px;
+    top: 10px;
+    -webkit-transform: rotateZ(37deg);
+    transform: rotateZ(37deg);
+    -webkit-transform-origin: 20% 40%;
+    transform-origin: 100% 100%;
   }
   &:not(:checked) + label:after {
     height: 20px;
     width: 20px;
     background-color: transparent;
     border: 2px solid $radio-empty-color;
-    top: 0px;
+    top: 0;
     z-index: 0;
   }
   // Checked style
@@ -460,12 +425,11 @@ form p:last-child {
       border-bottom: 2px solid #fff;
       -webkit-transform: rotateZ(37deg);
       transform: rotateZ(37deg);
-
       -webkit-transform-origin: 100% 100%;
       transform-origin: 100% 100%;
     }
     + label:after {
-      top: 0px;
+      top: 0;
       width: 20px;
       height: 20px;
       border: 2px solid $secondary-color;
@@ -475,10 +439,8 @@ form p:last-child {
   }
   // Disabled style
   &:disabled:not(:checked) + label:before {
-
     background-color: transparent;
     border: 2px solid transparent;
-
   }
   &:disabled:not(:checked) + label:after {
     border-color: transparent;
@@ -486,100 +448,88 @@ form p:last-child {
   }
   &:disabled:checked + label:before {
     background-color: transparent;
-
   }
   &:disabled:checked + label:after {
     background-color: $input-disabled-solid-color;
     border-color: $input-disabled-solid-color;
   }
-
 }
-
 /***************
      Switch
 ***************/
 .switch,
 .switch * {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
 }
 .switch label {
-    cursor: pointer;
+  cursor: pointer;
 }
-.switch label input[type=checkbox]{
-    opacity: 0;
-    width: 0;
-    height: 0;
+.switch label input[type=checkbox] {
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 .switch label input[type=checkbox]:checked + .lever {
-    background-color: $switch-checked-lever-bg;
+  background-color: $switch-checked-lever-bg;
 }
 .switch label input[type=checkbox]:checked + .lever:after {
-    background-color: $switch-bg-color;
+  background-color: $switch-bg-color;
 }
 .switch label .lever {
-    content: "";
-    display: inline-block;
-    position: relative;
-    width: 40px;
-    height: 15px;
-    background-color: $switch-unchecked-lever-bg;
-    border-radius: 15px;
-    margin-right: 10px;
-    transition: background 0.3s ease;
-    vertical-align: middle;
-    margin: 0 16px;
+  content: "";
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 15px;
+  background-color: $switch-unchecked-lever-bg;
+  border-radius: 15px;
+  margin-right: 10px;
+  transition: background 0.3s ease;
+  vertical-align: middle;
+  margin: 0 16px;
 }
 .switch label .lever:after {
-    content: "";
-    position: absolute;
-    display: inline-block;
-    width: 21px;
-    height: 21px;
-    background-color: $switch-unchecked-bg;
-    border-radius: 21px;
-    box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4);
-    left: -5px;
-    top: -3px;
-    transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  background-color: $switch-unchecked-bg;
+  border-radius: 21px;
+  box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4);
+  left: -5px;
+  top: -3px;
+  transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
 }
 // Switch active style
 input[type=checkbox]:checked:not(:disabled) ~ .lever:active:after {
-       box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px transparentize($switch-bg-color, .9);
+  box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px transparentize($switch-bg-color, .9);
 }
 input[type=checkbox]:not(:disabled) ~ .lever:active:after {
-       box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px rgba(0, 0, 0, 0.08);
 }
 .switch label input[type=checkbox]:checked + .lever:after {
-    left: 24px;
+  left: 24px;
 }
-
 // Disabled Styles
-
-.switch input[type=checkbox][disabled] + .lever{
+.switch input[type=checkbox][disabled] + .lever {
   cursor: default;
 }
 .switch label input[type=checkbox][disabled] + .lever:after,
 .switch label input[type=checkbox][disabled]:checked + .lever:after {
-    background-color: $input-disabled-solid-color;
+  background-color: $input-disabled-solid-color;
 }
-
-
-
-
 /***************
   Select Field
 ***************/
-
 .select-label {
   position: absolute;
 }
-
 .select-wrapper {
   position: relative;
-
   input.select-dropdown {
     position: relative;
     cursor: pointer;
@@ -592,7 +542,7 @@ input[type=checkbox]:not(:disabled) ~ .lever:active:after {
     line-height: 3rem;
     width: 100%;
     font-size: 1rem;
-    margin: 0 0 15px 0;
+    margin: 0 0 15px;
     padding: 0;
     display: block;
   }
@@ -612,11 +562,12 @@ input[type=checkbox]:not(:disabled) ~ .lever:active:after {
     font-size: $label-font-size;
   }
 }
-
-select { display: none; }
-select.browser-default { display: block; }
-
-
+select {
+  display: none;
+}
+select.browser-default {
+  display: block;
+}
 // Disabled styles
 select:disabled {
   color: rgba(0,0,0,.3);
@@ -624,9 +575,12 @@ select:disabled {
 .select-wrapper input.select-dropdown:disabled {
   color: rgba(0,0,0,.3);
   cursor: default;
-  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
-  -moz-user-select: none; /* mozilla browsers */
-  -ms-user-select: none; /* IE10+ */
+  -webkit-user-select: none;
+  /* webkit (safari, chrome) browsers */
+  -moz-user-select: none;
+  /* mozilla browsers */
+  -ms-user-select: none;
+  /* IE10+ */
   border-bottom: 1px solid rgba(0,0,0,.3);
 }
 .select-wrapper i {
@@ -636,19 +590,15 @@ select:disabled {
   color: rgba(0,0,0,.3);
   background-color: transparent;
 }
-
-
 /*********************
       File Input
 **********************/
 .file-field {
   position: relative;
-
   input.file-path {
     margin-left: 100px;
     width: calc(100% - 100px);
   }
-
   .btn {
     position: absolute;
     top: 0;
@@ -656,11 +606,9 @@ select:disabled {
     height: 3rem;
     line-height: 3rem;
   }
-
   span {
     cursor: pointer;
   }
-
   input[type=file] {
     position: absolute;
     top: 0;
@@ -673,32 +621,27 @@ select:disabled {
     font-size: 20px;
     cursor: pointer;
     opacity: 0;
-    filter: alpha(opacity=0);
+    filter:alpha(opacity=0);
   }
 }
-
-
-
 /***************
       Range
 ***************/
-
 .range-field {
   position: relative;
 }
-
-input[type=range], input[type=range] + .thumb {
+input[type=range],
+input[type=range] + .thumb {
   @extend .no-select;
   cursor: pointer;
 }
-
 input[type=range] {
   position: relative;
   background-color: transparent;
   border: none;
   outline: none;
   width: 100%;
-  margin: 15px 0px;
+  margin: 15px 0;
   padding: 0;
 }
 input[type=range] + .thumb {
@@ -710,10 +653,8 @@ input[type=range] + .thumb {
   background-color: $radio-fill-color;
   top: 10px;
   margin-left: -6px;
-
   @include transform-origin(50% 50%);
   @include transform(rotate(-45deg));
-
   .value {
     display: block;
     width: 30px;
@@ -722,10 +663,8 @@ input[type=range] + .thumb {
     font-size: 0;
     @include transform(rotate(45deg));
   }
-
   &.active {
     border-radius: 50% 50% 50% 0;
-
     .value {
       color: #fff;
       margin-left: -1px;
@@ -734,25 +673,18 @@ input[type=range] + .thumb {
     }
   }
 }
-
-
 input[type=range]:focus {
   outline: none;
 }
-
-
-
 // WebKit
-input[type=range]{
+input[type=range] {
   -webkit-appearance: none;
 }
-
 input[type=range]::-webkit-slider-runnable-track {
   height: 3px;
   background: #c2c0c2;
   border: none;
 }
-
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: none;
@@ -761,28 +693,23 @@ input[type=range]::-webkit-slider-thumb {
   border-radius: 50%;
   background-color: $radio-fill-color;
   transform-origin: 50% 50%;
-  margin: -5px 0 0 0;
+  margin: -5px 0 0;
   @include transition(.3s);
 }
-
 input[type=range]:focus::-webkit-slider-runnable-track {
   background: #ccc;
 }
-
 // FireFox
-input[type=range]{
+input[type=range] {
   /* fix for FF unable to apply focus style bug  */
   border: 1px solid white;
-
   /*required for proper track sizing in FF*/
 }
-
 input[type=range]::-moz-range-track {
   height: 3px;
   background: #ddd;
   border: none;
 }
-
 input[type=range]::-moz-range-thumb {
   border: none;
   height: 14px;
@@ -791,28 +718,22 @@ input[type=range]::-moz-range-thumb {
   background: $radio-fill-color;
   margin-top: -5px;
 }
-
 /*hide the outline behind the border*/
-input[type=range]:-moz-focusring{
+input[type=range]:-moz-focusring {
   outline: 1px solid white;
   outline-offset: -1px;
 }
-
 input[type=range]:focus::-moz-range-track {
   background: #ccc;
 }
-
 // IE 10+
 input[type=range]::-ms-track {
   height: 3px;
-
   /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
   background: transparent;
-
   /*leave room for the larger thumb to overflow with a transparent border */
   border-color: transparent;
   border-width: 6px 0;
-
   /*remove default tick marks*/
   color: transparent;
 }
@@ -835,16 +756,14 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #ccc;
 }
-
 /***************************
    Text Inputs + Textarea
 ****************************/
-
 select {
-   background-color: rgba(255, 255, 255, 0.90);
-   width: 100%;
-   padding: 5px;
-   border: 1px solid #f2f2f2;
-   border-radius: 2px;
-   height: 3rem;
-   }
+  background-color: rgba(255, 255, 255, 0.90);
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #f2f2f2;
+  border-radius: 2px;
+  height: 3rem;
+}

@@ -8,37 +8,43 @@
 Router.configure({
   layoutTemplate: 'base'
 });
-
-var requireLogin = function() {
-  if (!Meteor.user()) {
-    this.render('hello');
-  } else {
-    this.next();
+var OnBeforeActions = {
+  loginRequired: function() {
+    if (!Meteor.userId()) {
+      this.render('hello');
+    } else {
+      this.next();
+    }
   }
-}
-Router.onBeforeAction(requireLogin, {
-  except: ['hello']
+};
+Router.onBeforeAction(OnBeforeActions.loginRequired, {
+  except: ['index']
 });
+
 Router.route('/', function() {
-  Router.go('/users/' + Meteor.userId());
-});
-// Routes below
-Router.route('/users/:user_id', function() {
-  // console.log(this.params.user_id);
-  this.render('home', {
-    data: {
-      userContext: this.params.user_id,
-      username: Meteor.users.findOne({
-        _id: this.params.user_id
-      }).username,
-      yokes: Yokes.find({
-        user: this.params.user_id
-      }, {
-        sort: {
-          createdAt: -1
-        }
-      }),
-      pageOwner: (Meteor.userId() == this.params.user_id) ? true : false
+  var user = Meteor.user();
+  var yokes = Yokes.find({
+    user: Meteor.userId()
+  }, {
+    sort: {
+      createdAt: -1
     }
   });
+  this.render('home', {
+    data: {
+      userContext: user && user._id,
+      username: user && user.profile.name,
+      yokes: yokes,
+    }
+  });
+}, {
+  name: 'home'
+});
+
+
+// Routes below
+Router.route('/index', function() {
+  this.render('hello');
+}, {
+  name: 'index'
 });

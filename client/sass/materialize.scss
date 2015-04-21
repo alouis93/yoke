@@ -59,7 +59,7 @@ footer {
 // FIXME: Neater centering.
 .intro-container {
   position: absolute;
-  height: 90%;
+  height: 80%;
   left: 0;
   right: 0;
 }
@@ -74,16 +74,16 @@ footer {
   margin-right: auto;
   padding-left: 250px;
 }
-#top-nav {
-  display: none;
-}
+// #top-nav {
+//   display: none;
+// }
 @media #{$medium-and-down} {
   .brand {
     padding-left: 0;
   }
-  #top-nav {
-    display: block;
-  }
+  // #top-nav {
+  //   display: block;
+  // }
 }
 .userheader {
   // max-width: 75%;
@@ -108,4 +108,16 @@ footer {
   color: yellow;
   font-weight: bold;
   text-align: right;
+}
+.search-bar {
+  width: 100%;
+  float: right;
+}
+#search {
+  @extend .search-input;
+}
+@media #{$medium-and-down} {
+  .search-bar {
+    width: 90%;
+  }
 }

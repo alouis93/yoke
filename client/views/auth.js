@@ -5,19 +5,20 @@ Template.signupForm.events({
   "submit #signup-form": function(event, template) {
     event.preventDefault();
     Accounts.createUser({
-      username: template.find("#signup-username").value,
-      password: template.find("#signup-password").value,
+      username: $("#signup-username").val(),
+      password: $("#signup-password").val(),
       profile: {
-        name: template.find("#signup-name").value
+        name: $("#signup-name").val()
           // Other required field values can go here
       }
     }, function(error) {
       if (error) {
         // Display the user creation error to the user however you want
       } else {
-        // $('#authModal').closeModal();
+        $('#authModal').closeModal();
       }
     });
+    return false;
   }
 });
 
@@ -31,10 +32,11 @@ Template.loginForm.events({
         if (error) {
           // Display the login error to the user however you want
         } else {
-          // $('#authModal').closeModal();
+          $('#authModal').closeModal();
         }
       }
     );
+    return false;
   }
 });
 
@@ -45,7 +47,8 @@ Template.logoutForm.events({
       if (error) {
         // Display the logout error to the user however you want
       } else {
-        // $('#authModal').closeModal();
+        $('#authModal').closeModal();
+        // return Router.go('/index');
       }
     });
   }

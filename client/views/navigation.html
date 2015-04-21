@@ -4,23 +4,35 @@
       <a href="#" data-activates="nav-mobile" class="button-collapse">
         <i class="mdi-navigation-menu"></i>
       </a>
+      {{#if loggedIn}}
+      <div class="search-bar nav-wrapper">
+        <form>
+          <div class="input-field">
+            {{> esInput id="search" index="users"}}
+            <!-- <input id="search" type="search" required> -->
+            <label for="search"><i class="mdi-action-search"></i></label>
+            <i class="mdi-navigation-close"></i>
+          </div>
+        </form>
+      </div>
+      {{/if}}
     </div>
   </nav>
   <ul id="nav-mobile" class="side-nav fixed">
     {{#if loggedIn}}
     <li>
-      <a data-target="authModal" data-modal-template="logoutForm" class="modal-trigger" href="#authModal">
+      <a class="sign-out">
         Sign Out
       </a>
     </li>
     {{else}}
     <li>
-      <a data-target="authModal" data-modal-template="loginForm" class="modal-trigger" href="#authModal">
+      <a data-target="authModal" class="auth-modal-trig" data-modal-template="loginForm">
         Login
       </a>
     </li>
     <li>
-      <a data-target="authModal" data-modal-template="signupForm" class="modal-trigger" href="#authModal">
+      <a data-target="authModal" class="auth-modal-trig" data-modal-template="signupForm">
         Register
       </a>
     </li>

@@ -9,6 +9,7 @@ insecure
 accounts-password
 iron:router
 fourseven:scss
-jquery
 accounts-ui-unstyled
 mrt:moment
+matteodem:easy-search
+jquery

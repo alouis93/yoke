@@ -1,0 +1,21 @@
+<template name="search">
+  <ul class="collection">
+    {{#esEach id="search" index="users"}}
+    <li class="collection-item avatar">
+      <!-- <img src="images/yuna.jpg" alt="" class="circle"> -->
+      <!-- <a class="btn-floating btn-small waves-effect waves-light red"><i class="mdi-content-add"></i></a> -->
+      <span class="title">{{profile.name}}</span>
+      <!-- <p>First Line
+        <br> Second Line
+      </p> -->
+      <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+    </li>
+    {{/esEach}}
+  </ul>
+
+  {{> esLoadMoreButton id="search" index="users"}} {{#ifEsHasNoResults id="search" index="users"}}
+  <div class="no-results">No results found!</div>
+  {{/ifEsHasNoResults}} {{#ifEsIsSearching id="search" index="users"}}
+  <div>Loading...</div>
+  {{/ifEsIsSearching}}
+</template>
