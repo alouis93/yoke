@@ -32,12 +32,16 @@
 @import "components/date_picker/default.scss";
 @import "components/date_picker/default.date.scss";
 @import "components/date_picker/default.time.scss";
-$pale-crimson: #fd5858;
+$dark-blue: #0a435a;
 $height: auto;
-.side-nav li {
-  font-weight: bold;
+body {
+  background-color: $dark-blue;
 }
-// Hide navbar on smaller devices
+@media #{$medium-and-down} {
+  .search-bar {
+    width: 90%;
+  }
+}
 header,
 main,
 footer {
@@ -50,13 +54,9 @@ footer {
     padding-left: 0;
   }
 }
-.side-nav a {
-  cursor: pointer;
+#nav-mobile {
+  background-color: whitesmoke;
 }
-.white-text {
-  color: white;
-}
-// FIXME: Neater centering.
 .intro-container {
   position: absolute;
   height: 80%;
@@ -68,44 +68,73 @@ footer {
   font-family: "Helvetica", sans-serif;
   font-size: 7em;
   font-weight: bold;
-  color: $pale-crimson;
+  color: $flat-red;
   letter-spacing: -5px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 250px;
 }
-// #top-nav {
-//   display: none;
-// }
 @media #{$medium-and-down} {
   .brand {
     padding-left: 0;
   }
-  // #top-nav {
-  //   display: block;
-  // }
+}
+.side-nav li {
+  a {
+    cursor: pointer;
+    height: auto !important;
+    @include transition(0.3s ease);
+    .notify-badge {
+      font-weight: bold;
+      width: 45px;
+      height: 45px;
+      line-height: 45px !important;
+      margin-top: 9px;
+      background: $flat-red !important;
+      border-radius: 7px;
+      color: white !important;
+    }
+  }
+  &:hover {
+    a {
+      .notify-badge {
+        background: $dark-blue !important;
+      }
+    }
+  }
+}
+.collection-item {
+  .btn-floating {
+    margin-top: -1%;
+    display: block;
+    i {
+      font-size: 1rem;
+    }
+  }
+}
+.flat-blue {
+  background-color: $flat-blue;
+}
+.white-text {
+  color: white;
 }
 .userheader {
-  // max-width: 75%;
   float: left;
 }
-.follow_state {
+.follow-state {
   float: right;
-  margin-top: 1.1rem;
+  margin-top: 0.5rem;
+  @include transition(all 0.5s ease);
 }
-.follow_state:hover {
-  cursor: pointer;
+.unfollow {
+  background: $flat-red !important;
+  @include rotate(-45deg);
 }
 .follow {
-  color: $pale-crimson;
-  @include rotate(-90deg);
-}
-.follow:hover {
-  @include rotate(90deg);
-  @include transition(700ms);
+  background: ("blue","lighten-2") !important;
 }
 .date-text {
-  color: yellow;
+  color: rgb(255, 196, 196);
   font-weight: bold;
   text-align: right;
 }
@@ -116,8 +145,38 @@ footer {
 #search {
   @extend .search-input;
 }
-@media #{$medium-and-down} {
-  .search-bar {
-    width: 90%;
+.search-loader {
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+}
+.no-results {
+  color: $flat-red;
+  text-transform: lowercase;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}
+.no-yokes {
+  @extend .no-results;
+  font-weight: 3em;
+}
+.logo {
+  text-align: center;
+  margin-top: 32px;
+  border-bottom: 1px solid #ddd;
+  &:hover {
+    background: none !important;
   }
+  a:hover {
+    cursor: default;
+  }
+}
+.btn-full {
+  margin-top: 5px;
+  width: 100%;
 }

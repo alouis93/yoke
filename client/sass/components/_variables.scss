@@ -1,8 +1,12 @@
 /*** Colors ***/
-$primary-color: color("materialize-red", "lighten-2") !default;
+// $primary-color: color("materialize-red", "lighten-2") !default;
+$flat-red: #f04f4f;
+$flat-blue: #21adb9;
+$primary-color: $flat-red;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
-$secondary-color: color("teal", "lighten-1") !default;
+// $secondary-color: color("teal", "lighten-1") !default;
+$secondary-color: $flat-blue;
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
 $link-color: color("light-blue", "darken-1") !default;
@@ -107,6 +111,8 @@ $collection-border-color: #e0e0e0 !default;
 $collection-bg-color: #fff !default;
 $collection-active-bg-color: $secondary-color !default;
 $collection-active-color: lighten($secondary-color, 55%) !default;
+// $collection-hover-bg-color: rgb(255, 196, 196) !default;
+// $collection-hover-bg-color: rgba(10, 67, 90, 0.27) !default;
 $collection-hover-bg-color: #ddd !default;
 /* Progress Bar */
 $progress-bar-color: $secondary-color !default;

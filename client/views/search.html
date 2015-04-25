@@ -1,21 +1,35 @@
 <template name="search">
-  <ul class="collection">
+  <div class="collection">
     {{#esEach id="search" index="users"}}
-    <li class="collection-item avatar">
-      <!-- <img src="images/yuna.jpg" alt="" class="circle"> -->
-      <!-- <a class="btn-floating btn-small waves-effect waves-light red"><i class="mdi-content-add"></i></a> -->
-      <span class="title">{{profile.name}}</span>
-      <!-- <p>First Line
-        <br> Second Line
-      </p> -->
-      <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
-    </li>
+    <a href="/users/{{_id}}" class="collection-item">
+      {{profile.name}}
+      {{#if isFollowing _id}}
+      <a data-user-id="{{_id}}" data-username="{{profile.name}}" class="btn-floating flat-red right follow-state unfollow">
+        <i class="mdi-content-add"></i>
+      </a> {{else}}
+    <a data-user-id="{{_id}}" data-username="{{profile.name}}" class="btn-floating flat-red right follow-state follow">
+      <i class="mdi-content-add"></i>
+    </a>
+    {{/if}}
+    </a>
     {{/esEach}}
-  </ul>
+  </div>
 
   {{> esLoadMoreButton id="search" index="users"}} {{#ifEsHasNoResults id="search" index="users"}}
   <div class="no-results">No results found!</div>
   {{/ifEsHasNoResults}} {{#ifEsIsSearching id="search" index="users"}}
-  <div>Loading...</div>
+  <div class="preloader-wrapper small active search-loader">
+    <div class="spinner-layer spinner-green-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div>
+      <div class="gap-patch">
+        <div class="circle"></div>
+      </div>
+      <div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
   {{/ifEsIsSearching}}
 </template>

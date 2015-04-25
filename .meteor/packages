@@ -13,3 +13,5 @@ accounts-ui-unstyled
 mrt:moment
 matteodem:easy-search
 jquery
+autopublish
+chrismbeckett:toastr

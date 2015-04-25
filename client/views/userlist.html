@@ -1,0 +1,21 @@
+<template name="userlist">
+  {{#unless inSearch}}
+  <div class="row">
+    <h1 class="userheader">
+      {{title}}
+    </h1>
+  </div>
+  <div class="row">
+    {{#if validCollection users}}
+    <div class="collection">
+      {{#each users}}
+      <a href="/users/{{_id}}" class="collection-item">{{username}}</a> {{/each}}
+    </div>
+    {{else}}
+    <div class="no-yokes card-panel">
+      this list is empty
+    </div>
+    {{/if}}
+  </div>
+  {{else}} {{>search}} {{/unless}}
+</template>

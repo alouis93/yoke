@@ -1,8 +1,9 @@
 .container {
-  padding: 0 $gutter-width;
+  padding: $gutter-width;
   margin: 0 auto;
   max-width: 1280px;
   width: 90%;
+  color: white;
 }
 @media #{$medium-and-up} {
   .container {
@@ -18,11 +19,9 @@
   margin-left: (-1 * $gutter-width / 2);
   margin-right: (-1 * $gutter-width / 2);
 }
-
 .section {
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   &.no-pad {
     padding: 0;
   }
@@ -33,25 +32,20 @@
     padding-top: 0;
   }
 }
-
-
 .row {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
-
   // Clear floating children
   &:after {
     content: "";
     display: table;
     clear: both;
   }
-
   .col {
     float: left;
     @include box-sizing(border-box);
     padding: 0 $gutter-width / 2;
-
     $i: 1;
     @while $i <= $num-cols {
       $perc: unquote((100 / ($num-cols / $i)) + "%");
@@ -69,9 +63,7 @@
       }
       $i: $i + 1;
     }
-
     @media #{$medium-and-up} {
-
       $i: 1;
       @while $i <= $num-cols {
         $perc: unquote((100 / ($num-cols / $i)) + "%");
@@ -89,11 +81,8 @@
         }
         $i: $i + 1;
       }
-
     }
-
     @media #{$large-and-up} {
-
       $i: 1;
       @while $i <= $num-cols {
         $perc: unquote((100 / ($num-cols / $i)) + "%");
@@ -111,8 +100,6 @@
         }
         $i: $i + 1;
       }
-
     }
-
   }
 }

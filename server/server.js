@@ -29,7 +29,7 @@ Meteor.methods({
     }).fetch();
   },
   'removeBranch': function(userId, followsId) {
-    Yokes.remove({
+    Graph.remove({
       'user': userId,
       'follows': followsId
     });

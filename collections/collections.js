@@ -8,3 +8,12 @@ EasySearch.createSearchIndex('users', {
   'collection': Meteor.users,
   'use': 'mongo-db'
 });
+
+if (Meteor.isServer) {
+  Graph._ensureIndex('user', {
+    unique: 1
+  });
+  Graph._ensureIndex('follows', {
+    unique: 1
+  });
+}
