@@ -1,8 +1,7 @@
 /**
  * @file
- * Contains client side template+view config.
+ * Contains client and server template+view routing configurations.
  */
-/* globals Router */
 
 //Route config below
 Router.configure({
@@ -17,10 +16,12 @@ var OnBeforeActions = {
     }
   }
 };
+/** Filter for routes allowed without authentication */
 Router.onBeforeAction(OnBeforeActions.loginRequired, {
-  except: ['index', 'users']
+  except: ['landing', 'users']
 });
 
+/** Home page route */
 Router.route('/', function() {
   var user = Meteor.user();
   /* FIXME: Implement reactive join */
@@ -55,6 +56,7 @@ Router.route('/', function() {
   name: 'home'
 });
 
+/** User page route */
 Router.route('/users/:user_id', function() {
   var user = Meteor.users.findOne({
     _id: this.params.user_id
@@ -83,6 +85,7 @@ Router.route('/users/:user_id', function() {
   name: 'users',
 });
 
+/** Following users list */
 Router.route('/following', function() {
   var pkg = new Array();
   Graph.find({
@@ -102,7 +105,7 @@ Router.route('/following', function() {
     }
   });
 });
-
+/** Route displaying user's followers */
 Router.route('/followers', function() {
   var pkg = new Array();
   Graph.find({

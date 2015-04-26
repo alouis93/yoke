@@ -1,4 +1,11 @@
+/**
+ * @file
+ * Event handlers controlling inSearch flag and navigation panel template helpers.
+ */
+
+
 Template.navigation.events({
+  // Setting the inSearch flag to false when the search view is inactive
   'input #search, focus #search, click #search-form .input-field': function(event, template) {
     var inSearchBool = (template.find("#search").value.length) ? true : false;
     Session.set("inSearch", inSearchBool);
@@ -11,14 +18,22 @@ Template.navigation.events({
   }
 });
 
-// Returns the number of people you follow.
 Template.navigation.helpers({
+  /**
+   * Returns the number of users current user follow's
+   * @locus Client
+   * @method Template.navigation.__helpers[' followingCount']
+   */
   'followingCount': function() {
     return Graph.find({
       user: Meteor.userId()
     }).count();
   },
-  // Returns the # of people following you.
+  /**
+   * Returns the number of users following current user
+   * @locus Client
+   * @method Template.navigation.__helpers[' followersCount']
+   */
   'followersCount': function() {
     return Graph.find({
       follows: Meteor.userId()

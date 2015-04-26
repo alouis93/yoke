@@ -1,4 +1,9 @@
+/**
+ * @file
+ * Event handlers for the authentication modules
+ */
 Template.signupForm.events({
+  // Sign up form submission, error handling
   "submit #signup-form": function(event, template) {
     event.preventDefault();
     Accounts.createUser({
@@ -20,6 +25,7 @@ Template.signupForm.events({
 });
 
 Template.loginForm.events({
+  // Log in form submission, error handling
   "submit #login-form": function(event, template) {
     event.preventDefault();
     Meteor.loginWithPassword(
@@ -38,6 +44,7 @@ Template.loginForm.events({
   }
 });
 Template.modal.helpers({
+  // Active Modal getter
   activeModal: function() {
     return Session.get('activeModal');
   }
