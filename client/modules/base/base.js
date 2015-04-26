@@ -4,6 +4,9 @@
       Session.set('activeModal', name);
       $('#authModal').openModal();
     },
+    'click .side-nav li a': function() {
+      Session.set("inSearch", false);
+    },
     'click .sign-out': function(event, template) {
       Meteor.logout(function(error) {
         if (error) {
@@ -23,7 +26,7 @@
         user: Meteor.userId(),
         follows: userId
       })
-      toastr["success"]("Following " + username);
+      toastr.success("Following " + username);
       $(".follow-state")
         .removeClass("follow")
         .addClass("unfollow");
@@ -38,16 +41,10 @@
           toastr.error(error.reason);
         }
       });
-      toastr["success"]("Unfollowed " + username);
+      toastr.success("Unfollowed " + username);
       $(".follow-state")
         .removeClass("unfollow")
         .addClass("follow");
       return false;
     }
   })
-
-  Template.modal.helpers({
-    activeModal: function() {
-      return Session.get('activeModal');
-    }
-  });

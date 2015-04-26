@@ -32,15 +32,12 @@
 @import "components/date_picker/default.scss";
 @import "components/date_picker/default.date.scss";
 @import "components/date_picker/default.time.scss";
+// Custom Yoke Styles Below
 $dark-blue: #0a435a;
+$flat-yellow: rgb(255, 255, 101);
 $height: auto;
 body {
   background-color: $dark-blue;
-}
-@media #{$medium-and-down} {
-  .search-bar {
-    width: 90%;
-  }
 }
 header,
 main,
@@ -103,6 +100,15 @@ footer {
     }
   }
 }
+.search-bar {
+  width: 100%;
+  float: right;
+}
+@media #{$medium-and-down} {
+  .search-bar {
+    width: 95%;
+  }
+}
 .collection-item {
   .btn-floating {
     margin-top: -1%;
@@ -114,6 +120,9 @@ footer {
 }
 .flat-blue {
   background-color: $flat-blue;
+}
+.flat-red {
+  background-color: $flat-red;
 }
 .white-text {
   color: white;
@@ -134,13 +143,28 @@ footer {
   background: ("blue","lighten-2") !important;
 }
 .date-text {
-  color: rgb(255, 196, 196);
   font-weight: bold;
   text-align: right;
 }
-.search-bar {
-  width: 100%;
-  float: right;
+// Own yoke CSS
+.card-panel.flat-blue {
+  .date-text {
+    color: rgb(255, 196, 196);
+  }
+}
+.card-panel.flat-red {
+  .date-text {
+    color: #47ebf9;
+  }
+}
+.a70 {
+  width: 70%;
+}
+.a30 {
+  width: 30%;
+  .btn {
+    width: 100%;
+  }
 }
 #search {
   @extend .search-input;
@@ -179,4 +203,7 @@ footer {
 .btn-full {
   margin-top: 5px;
   width: 100%;
+}
+.yoke-link {
+  color: $flat-yellow;
 }

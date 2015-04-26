@@ -11,7 +11,7 @@ Router.configure({
 var OnBeforeActions = {
   loginRequired: function() {
     if (!Meteor.userId()) {
-      this.render('hello');
+      this.render('landing');
     } else {
       this.next();
     }
@@ -23,15 +23,26 @@ Router.onBeforeAction(OnBeforeActions.loginRequired, {
 
 Router.route('/', function() {
   var user = Meteor.user();
-  var yokes = Yokes.find({
+  /* FIXME: Implement reactive join */
+  // Generating user's feed below:
+  var pkg = Yokes.find({
     user: Meteor.userId()
-  }, {
-    sort: {
-      createdAt: -1
-    }
-  });
-  var userContext = Meteor.user() ? Meteor.userId : false;
-  Session.set("userContext", userContext);
+  }).fetch();
+  Graph.find({
+      user: Meteor.userId()
+    })
+    .fetch()
+    .forEach(function(e) {
+      var _yokes = Yokes.find({
+        user: e.follows
+      }).fetch();
+      pkg.push.apply(pkg, _yokes);
+    });
+  var yokes = _.sortBy(pkg, function(o) {
+    return o.createdAt;
+  }).reverse();
+
+  // Render w/ payload
   this.render('home', {
     data: {
       pageOwner: true,
@@ -57,7 +68,7 @@ Router.route('/users/:user_id', function() {
     }
   });
 
-  var noYokes = yokes && yokes.fetch().length;
+  var noYokes = yokes && yokes.count();
 
   this.render('home', {
     data: {

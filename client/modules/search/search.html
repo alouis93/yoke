@@ -1,4 +1,5 @@
 <template name="search">
+  {{#if validCollection users}}
   <div class="collection">
     {{#esEach id="search" index="users"}}
     <a href="/users/{{_id}}" class="collection-item">
@@ -14,8 +15,7 @@
     </a>
     {{/esEach}}
   </div>
-
-  {{> esLoadMoreButton id="search" index="users"}} {{#ifEsHasNoResults id="search" index="users"}}
+  {{/if}} {{> esLoadMoreButton id="search" index="users"}} {{#ifEsHasNoResults id="search" index="users"}}
   <div class="no-results">No results found!</div>
   {{/ifEsHasNoResults}} {{#ifEsIsSearching id="search" index="users"}}
   <div class="preloader-wrapper small active search-loader">

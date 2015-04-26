@@ -11,8 +11,8 @@ Template.signupForm.events({
       if (error) {
         toastr.error(error.reason);
       } else {
-        Router.go('home');
         $('#authModal').closeModal();
+        Router.go('home');
       }
     });
     return false;
@@ -35,5 +35,10 @@ Template.loginForm.events({
       }
     );
     return false;
+  }
+});
+Template.modal.helpers({
+  activeModal: function() {
+    return Session.get('activeModal');
   }
 });
