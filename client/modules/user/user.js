@@ -1,6 +1,6 @@
 /**
  * @file
- * Event handlers for the User pages including Yoke submission
+ * Contains main Yoke bar event handling and User page template helpers
  */
 
 Template.omnibar.events({
@@ -21,8 +21,6 @@ Template.home.helpers({
   /**
    * Check if current user follows the user who owns current page.
    * invoked when in the users route.
-   * @locus Client
-   * @method Template.home.__helpers[' followsUser']
    */
   followsUser: function() {
     return Graph.find({

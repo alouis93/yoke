@@ -1,6 +1,6 @@
 /**
  * @file
- * Global Event handlers for navigation panel, and follow/unfollow actions
+ * Contains navigation panel and unfollow/follow actions
  */
 
 Template.base.events({

@@ -1,4 +1,3 @@
-// server/server.js
 Meteor.publish('yokes', function() {
   return Yokes.find({});
 });
@@ -6,28 +5,12 @@ Meteor.publish('graph', function() {
   return Graph.find({});
 });
 
-
-
-// });.publish('graph', function() {
-//   return Graph.find({});
-// }).publish('users', function() {
-//   return Meteor.users.find({});
-// })
-
-
-Meteor.startup(function() {
-  // code to run on server at startup
-
-});
-
-
 Meteor.methods({
-  'getYokes': function(userId) {
-    // Grab from Yokes
-    Yokes.find({
-      'user': userId
-    }).fetch();
-  },
+  /**
+   * Server method to remove a relationship from the Graph collection
+   * @param {String} userId - Unique string userId of user in current context
+   * @param {String} followsId - Unique string userId of follower
+   */
   'removeBranch': function(userId, followsId) {
     Graph.remove({
       'user': userId,

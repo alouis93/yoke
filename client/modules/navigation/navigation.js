@@ -1,8 +1,7 @@
 /**
  * @file
- * Event handlers controlling inSearch flag and navigation panel template helpers.
+ * Contains authentication modal events
  */
-
 
 Template.navigation.events({
   // Setting the inSearch flag to false when the search view is inactive
@@ -21,8 +20,6 @@ Template.navigation.events({
 Template.navigation.helpers({
   /**
    * Returns the number of users current user follow's
-   * @locus Client
-   * @method Template.navigation.__helpers[' followingCount']
    */
   'followingCount': function() {
     return Graph.find({
@@ -31,8 +28,6 @@ Template.navigation.helpers({
   },
   /**
    * Returns the number of users following current user
-   * @locus Client
-   * @method Template.navigation.__helpers[' followersCount']
    */
   'followersCount': function() {
     return Graph.find({

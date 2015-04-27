@@ -1,7 +1,8 @@
 /**
  * @file
- * Event handlers for the authentication modules
+ * Contains authentication modal event handling
  */
+
 Template.signupForm.events({
   // Sign up form submission, error handling
   "submit #signup-form": function(event, template) {
