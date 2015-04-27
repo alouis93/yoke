@@ -8,7 +8,7 @@ Twitter Clone built in Meteor.js
 ```
 curl https://install.meteor.com/ | sh
 ```
-- `cd` into the `yoke` directory and run: `meteor`
+- `cd` into the `src` directory and run: `meteor`
 
  
 ## Design and Implementation
