@@ -1,8 +1,12 @@
 Meteor.publish('yokes', function() {
   return Yokes.find({});
+}, {
+  is_auto: true
 });
 Meteor.publish('graph', function() {
   return Graph.find({});
+}, {
+  is_auto: true
 });
 
 Meteor.methods({

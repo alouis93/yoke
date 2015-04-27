@@ -18,12 +18,6 @@ Yokes = new Mongo.Collection('yokes');
  */
 Graph = new Meteor.Collection('graph');
 
-EasySearch.createSearchIndex('users', {
-  'field': ['username', 'profile.name'],
-  'collection': Meteor.users,
-  'use': 'mongo-db'
-});
-
 if (Meteor.isServer) {
   /**
    * Enforcing that the key of the 'schema' of the
@@ -36,3 +30,9 @@ if (Meteor.isServer) {
     unique: 1
   });
 }
+
+EasySearch.createSearchIndex('users', {
+  'field': ['username', 'profile.name'],
+  'collection': Meteor.users,
+  'use': 'mongo-db'
+});

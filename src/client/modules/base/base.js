@@ -34,7 +34,7 @@ Template.home.events({
       follows: userId
     })
     toastr.success("Following " + username);
-    $(".follow-state")
+    $(event.target).parent()
       .removeClass("follow")
       .addClass("unfollow");
     return false;
@@ -50,7 +50,7 @@ Template.home.events({
       }
     });
     toastr.success("Unfollowed " + username);
-    $(".follow-state")
+    $(event.target).parent()
       .removeClass("unfollow")
       .addClass("follow");
     return false;

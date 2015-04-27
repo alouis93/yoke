@@ -47,6 +47,9 @@ Template.registerHelper('isFollowing', function(followingId) {
     follows: followingId
   }).count()) ? true : false;
 });
+Template.registerHelper('isCurrentUser', function(id) {
+  return (Meteor.userId() == id) ? true : false;
+});
 /**
  * Ensures you have a valid collection returned
  * @param {Array} c - Collection query result

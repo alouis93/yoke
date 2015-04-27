@@ -18,7 +18,7 @@ var OnBeforeActions = {
 };
 /** Filter for routes allowed without authentication */
 Router.onBeforeAction(OnBeforeActions.loginRequired, {
-  except: ['landing', 'users']
+  except: ['landing']
 });
 
 /** Home page route */
@@ -58,10 +58,10 @@ Router.route('/', function() {
 
 /** User page route */
 Router.route('/users/:user_id', function() {
+
   var user = Meteor.users.findOne({
     _id: this.params.user_id
   });
-
   var yokes = Yokes.find({
     user: this.params.user_id
   }, {
@@ -69,9 +69,7 @@ Router.route('/users/:user_id', function() {
       createdAt: -1
     }
   });
-
   var noYokes = yokes && yokes.count();
-
   this.render('home', {
     data: {
       pageOwner: false,
@@ -83,6 +81,15 @@ Router.route('/users/:user_id', function() {
   });
 }, {
   name: 'users',
+  onBeforeAction: function() {
+    if (!Meteor.users.findOne({
+        _id: this.params.user_id
+      })) {
+      Router.go('/');
+    } else {
+      this.next();
+    }
+  }
 });
 
 /** Following users list */

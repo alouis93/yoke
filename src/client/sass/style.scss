@@ -140,7 +140,7 @@ footer {
   @include rotate(-45deg);
 }
 .follow {
-  background: ("blue","lighten-2") !important;
+  background: color("blue","lighten-2") !important;
 }
 .date-text {
   font-weight: bold;
