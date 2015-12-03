@@ -110,9 +110,16 @@ footer {
   }
 }
 .collection-item {
+  border-bottom: 1px solid #e0e0e0;
   .btn-floating {
-    margin-top: -1%;
-    display: block;
+      display: block;
+      position: absolute;
+      right: 4px;
+      top: 0px;
+      bottom: 0px;
+      margin-top: auto;
+      margin-bottom: auto;
+      border-radius: 7px;
     i {
       font-size: 1rem;
     }
@@ -137,7 +144,9 @@ footer {
 }
 .unfollow {
   background: $flat-red !important;
-  @include rotate(-45deg);
+  .mdi-content-add{
+    @include rotate(-45deg);
+  }
 }
 .follow {
   background: color("blue","lighten-2") !important;
@@ -206,4 +215,9 @@ footer {
 }
 .yoke-link {
   color: $flat-yellow;
+}
+.collection{
+  border-radius:7px;
+  height: auto;
+  border: none !important;
 }

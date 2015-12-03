@@ -19,10 +19,10 @@
     {{/esEach}}
   </div>
   {{> esLoadMoreButton id="search" index="users"}} {{#ifEsHasNoResults id="search" index="users"}}
-  <div class="no-results">No results found!</div>
+  <div class="no-results card-panel">No results found!</div>
   {{/ifEsHasNoResults}} {{#ifEsIsSearching id="search" index="users"}}
-  <div class="preloader-wrapper small active search-loader">
-    <div class="spinner-layer spinner-green-only">
+  <div class="preloader-wrapper big active search-loader">
+    <div class="spinner-layer spinner-red-only">
       <div class="circle-clipper left">
         <div class="circle"></div>
       </div>
